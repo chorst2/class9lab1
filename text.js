@@ -41,10 +41,18 @@ function runLoops() {
         "while-loop"    ==>  runWhileLoop()
         "do-while-loop" ==>  runDoWhileLoop()
     */
-
-
-
-
+if(selectedLoop === "while-loop")
+{
+    runWhileLoop();
+}
+else if(selectedLoop === "do-while-loop")
+{
+    runDoWhileLoop();
+}
+else
+{
+    runForLoop();
+}
 
 }
 
@@ -53,6 +61,16 @@ function runWhileLoop() {
     var number = parseInt($("#myNumber").val());
     var output = "";
 
+
+    var numTimes=0;
+    while(numTimes<number)
+    {
+        output += 'A';
+        numTimes++;
+    }
+
+    $("#while-result").text(output);
+}
     /*
         Use a while loop to concatenate the letter A
         "number" times to the string "output". For example,
@@ -62,21 +80,25 @@ function runWhileLoop() {
     */
 
 
-    $("#while-result").text(output);
-}
 
 
 function runForLoop() {
     var number = parseInt($("#myNumber").val());
     var sum = 0;
 
+    for(var numTimes = 0; numTimes<=number;numTimes++)
+    {
+        sum += numTimes;
+    }
+
+    $("#for-result").text(sum);
+}
+
     /*
         Use a for loop to add the numbers 1 through "number"
         into the variable "sum".
     */
 
-    $("#for-result").text(sum);
-}
 
 
 function runDoWhileLoop() {
@@ -88,7 +110,13 @@ function runDoWhileLoop() {
         "number" to the string "output". For example, if "number"
         is 5, then output should be "12345".
     */
-
+    var numTimes=1;
+    do
+    {
+        output += numTimes;
+        numTimes++;
+    }
+    while(numTimes <= number);
 
     $("#do-while-result").text(output);
 }
